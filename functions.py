@@ -15,7 +15,7 @@ class Bug:
 
 def generationGenerator( parents, count, w, h, complexity, mutation):
     #for the first generation or if there are not enough survivors
-    while len(parents) < 5:
+    while len(parents) < 20:
         code = []
         for synaps in range(complexity):
             code.append([random.randint( 0, len(inputs)-1), #input
@@ -44,20 +44,38 @@ def generationGenerator( parents, count, w, h, complexity, mutation):
         code = []
         style = []
         for synaps in range(complexity):
-            parent = random.randint(0, 1)
+            parent = random.randint(1, 2)
             if parent == 1:
                 code.append(parent1.code[synaps])
             if parent == 2:
                 code.append(parent2.code[synaps])
         for channel in range( 0, 3):
-            parent = random.randint(1, 2)
+            parent = random.randint(1, 3)
             if parent == 1:
                 style.append(parent1.style[channel])
             if parent == 2:
-                style.append(parent2.style[channel])                
+                style.append(parent2.style[channel])
+            if parent == 3:
+                mix = math.floor((parent1.style[channel]+parent2.style[channel])/2)
+                style.append(mix)
         #mutation
+        for synaps in range(complexity):
+            for value in range(3):
+                if value == 0:
+                    if random.random() < mutation:
+                        code[synaps][value] = random.randint( 0, len(inputs)-1)
+                if value == 1:
+                    if random.random() < mutation:
+                        code[synaps][value] = random.random()*6-3
+                if value == 2:
+                    if random.random() < mutation:
+                        code[synaps][value] = random.randint( 0, len(outputs)-1)
+        for channel in range( 0, 3):
+                if random.random() < mutation:
+                    style[channel] = random.randint( 0, 255)
         #appending the new born
         validated += 1
+        print(style)
         children[x][y] = Bug( code, style)
     return children
 

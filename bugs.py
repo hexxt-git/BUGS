@@ -12,7 +12,7 @@ res = 16
 w = math.floor(width/res)
 h = math.floor(height/res)
 
-bugs = generationGenerator( [], 200, w, h, 8, 0)
+bugs = generationGenerator( [], 200, w, h, 5, 0.01)
 init_window( width, height, "BUGS")
 step = 0
 set_target_fps(30)
