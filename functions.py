@@ -8,11 +8,12 @@ inputs = [ locX, locY, adjN, adjE, adjS, adjW, rdm, age, osc2, osc5, osc10] #11
 outputs = [ moveN, moveE, moveS, moveW, moveR]#5
 
 class Bug:
-    def __init__(self, code):
+    def __init__(self, code, style):
         self.code = code
-        self.style = [random.randint(0, 255), random.randint(0, 255), random.randint(0, 255), 255]
+        self.style = style
+        self.forward = 0
 
-def generationGenerator( parents, count, w, h, mutation):
+def generationGenerator( parents, count, w, h, complexity, mutation):
     #making an empty 2D list
     children = []
     for x in range(w):
@@ -28,24 +29,28 @@ def generationGenerator( parents, count, w, h, mutation):
         while children[x][y] != None:
             x = random.randint( 0, w-1)
             y = random.randint( 0, h-1)
-            print(children[x][y])
         #mixing two parents
         parent1 = parents[random.randint( 0, len(parents)-1)]
         parent2 = parents[random.randint( 0, len(parents)-1)]
-        code = random.random()
+        code = []
+        style = [random.randint(0, 255), random.randint(0, 255), random.randint(0, 255), 255]
+        for synaps in range(complexity): #this is still random and does not take parents into consideration
+            code.append([random.randint( 0, len(inputs)-1), #input
+            random.random()*10-5, #weight
+            random.randint( 0, len(outputs)-1)]) # output
         #mutating the code
-        code = random.random()
         #appending the new born
         validated += 1
-        children[x][y] = Bug(code)
+        children[x][y] = Bug( code, style)
     return children
 
 def update(bugs, w, h, step, maxSteps):
     for x in range(w):
         for y in range(h):
-            for i in inputs:
-                i( bugs, x, y, w, h, step, maxSteps)
-            moveR(bugs, x, y, w, h)
+            if bugs[x][y] != None:
+                for connection in bugs[x][y].code:
+                    if inputs[int(connection[0])](bugs, x, y, w, h, step, maxSteps) * connection[1] > 0.5:
+                        outputs[connection[2]](bugs, x, y, w, h)
     return bugs
 
 def render(bugs, res):
