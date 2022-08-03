@@ -8,7 +8,7 @@ def moveN( bugs, x, y, w, h):
     if bugs[x][y-1] != None:
         return bugs
     temp = bugs[x][y-1]
-    #bugs[x][y].forward = 'N'
+    bugs[x][y].forward = 'N'
     bugs[x][y-1] = bugs[x][y]
     bugs[x][y] = temp
     return bugs
@@ -18,7 +18,7 @@ def moveE( bugs, x, y, w, h):
     if bugs[x+1][y] != None:
         return bugs
     temp = bugs[x+1][y]
-    #bugs[x][y].forward = 'E'
+    bugs[x][y].forward = 'E'
     bugs[x+1][y] = bugs[x][y]
     bugs[x][y] = temp
     return bugs
@@ -28,7 +28,7 @@ def moveS( bugs, x, y, w, h):
     if bugs[x][y+1] != None:
         return bugs
     temp = bugs[x][y+1]
-    #bugs[x][y].forward = 'S'
+    bugs[x][y].forward = 'S'
     bugs[x][y+1] = bugs[x][y]
     bugs[x][y] = temp
     return bugs
@@ -38,7 +38,7 @@ def moveW( bugs, x, y, w, h):
     if bugs[x-1][y] != None:
         return bugs
     temp = bugs[x-1][y]
-    #bugs[x][y].forward = 'W'
+    bugs[x][y].forward = 'W'
     bugs[x-1][y] = bugs[x][y]
     bugs[x][y] = temp
     return bugs
