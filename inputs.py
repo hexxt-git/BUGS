@@ -46,4 +46,3 @@ def nearby3(bugs, x, y, w, h, step, maxSteps):
                             if bugs[x1][y1] != None:
                                 count += 1
     return count/8
-#when these functions are called they take in the gen and current id as input and return a value from 0 to 1
