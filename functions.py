@@ -55,21 +55,21 @@ def generationGenerator( parents, count, w, h, complexity, mutation):
             if parent == 2:
                 code.append(parent2.code[synaps])
         for bias in range(len(outputs)):
-            parent = random.randint(1, 3)
-            if parent == 1:
+            parent = random.random()
+            if parent < 0.45:
                 biases.append(parent1.biases[bias])
-            if parent == 2:
+            elif parent < 0.9:
                 biases.append(parent2.biases[bias])
-            if parent == 3:
+            elif parent < 1:
                 mix = math.floor((parent1.biases[bias]+parent2.biases[bias])/2)
                 biases.append(mix)
         for channel in range( 0, 3):
-            parent = random.randint(1, 3)
-            if parent == 1:
+            parent = random.random()
+            if parent < 0.45:
                 style.append(parent1.style[channel])
-            if parent == 2:
+            elif parent < 0.9:
                 style.append(parent2.style[channel])
-            if parent == 3:
+            elif parent < 1:
                 mix = math.floor((parent1.style[channel]+parent2.style[channel])/2)
                 style.append(mix)
         #mutation
@@ -116,7 +116,7 @@ def render(bugs, res, generation):
         for y in range(len(bugs[x])):
             if bugs[x][y] != None:
                 draw_circle( x*res + int(res/2), y*res + int(res/2), res/2, Color( bugs[x][y].style[0], bugs[x][y].style[1], bugs[x][y].style[2], 255))
-    draw_rectangle_lines(1, 1, len(bugs)*res, 12*res, GREEN)
+    draw_rectangle_lines( 0, 0, 10*res, len(bugs[0])*res, GREEN)
     draw_text( 'generation: '+str(generation), 11, 13, 23, BLACK)
     draw_text( 'generation: '+str(generation), 8, 10, 23, WHITE)
     end_drawing()

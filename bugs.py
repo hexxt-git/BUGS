@@ -6,11 +6,11 @@ from inputs import *
 from outputs import *
 
 with open('results.txt', 'w') as textFile:
-    textFile.write('----EVOLUTION----')
+    textFile.write('----SURVIVAL RATES:----')
 
 maxSteps = 1000
-width = 1202
-height = 660
+width = 960
+height = 600
 res = 16
 w = math.floor(width/res)
 h = math.floor(height/res)
@@ -30,11 +30,12 @@ while not window_should_close():
         step = 0
         parents = []
         for x in range(len(bugs)):
-            for y in range(12):
+            for y in range(len(bugs[0])):
                 if bugs[x][y] != None:
-                    parents.append(bugs[x][y])
-        bugs = generationGenerator( parents, 500, w, h, 10, 0.05)
-        print('gen '+str(generation-1) + ': ' + str(len(parents)) + ', '+ str(math.floor(len(parents)/500*100*1000)/1000) + '%')
+                    if (x >= 0 )&( x <= 10):
+                        if (y >= 0 )&( y <= h):
+                            parents.append(bugs[x][y])
+        bugs = generationGenerator( parents, 500, w, h, 10, 0.0001)
         f = open("results.txt", "a")
-        f.write('\ngen '+str(generation-1) + ': ' + str(math.floor(len(parents)/500*100*1000)/1000) + '%')
+        f.write('\ngen '+str(generation-1) + ': ' + str(math.floor(len(parents)/500*100*100)/100) + '%')
 close_window()
