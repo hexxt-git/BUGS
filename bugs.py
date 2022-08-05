@@ -15,16 +15,20 @@ res = 16
 w = math.floor(width/res)
 h = math.floor(height/res)
 
-bugs = generationGenerator( [], 500, w, h, 10, 1)
+bugs = generationGenerator( [], 200, w, h, 10, 1)
 init_window( width, height, "BUGS")
 step = 0
 generation = 0
-#set_target_fps(30)
+data = []
+state = 1
+#set_target_fps(20)
 while not window_should_close():
     step += 1
     bugs = update(bugs, w, h, step, maxSteps)
-    render(bugs, res, generation)
+    render(bugs, res, generation, state)
     #generating a new generation every 1k step
+    if is_key_pressed(KEY_SPACE):
+            state *= -1
     if step == 1000:
         generation += 1
         step = 0
@@ -32,10 +36,16 @@ while not window_should_close():
         for x in range(len(bugs)):
             for y in range(len(bugs[0])):
                 if bugs[x][y] != None:
-                    if (x >= 0 )&( x <= 10):
-                        if (y >= 0 )&( y <= h):
-                            parents.append(bugs[x][y])
-        bugs = generationGenerator( parents, 500, w, h, 10, 0.0001)
+                    if state == 1:
+                        if (x >= w-10 )&( x <= w):
+                            if (y >= 0 )&( y <= h):
+                                parents.append(bugs[x][y])
+                    if state == -1:
+                        if (x >= 0 )&( x <= 10):
+                            if (y >= 0 )&( y <= h):
+                                parents.append(bugs[x][y])
+        bugs = generationGenerator( parents, 200, w, h, 10, 0.0005)
         f = open("results.txt", "a")
-        f.write('\ngen '+str(generation-1) + ': ' + str(math.floor(len(parents)/500*100*100)/100) + '%')
+        f.write('\ngen '+str(generation) + ' survivors: ' + str(math.floor(len(parents)/200*100*100)/100) + '%')
+        data.append(len(parents))
 close_window()

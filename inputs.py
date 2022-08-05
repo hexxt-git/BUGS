@@ -46,3 +46,12 @@ def nearby3(bugs, x, y, w, h, step, maxSteps):
                             if bugs[x1][y1] != None:
                                 count += 1
     return count/8
+def forward(bugs, x, y, w, h, step, maxSteps):
+    if bugs[x][y].forward == 'N':
+        return 0
+    if bugs[x][y].forward == 'E':
+        return 0.3333
+    if bugs[x][y].forward == 'S':
+        return 0.6666
+    if bugs[x][y].forward == 'W':
+        return 1

@@ -1,25 +1,79 @@
 ----SURVIVAL RATES:----
-gen 0: 17.0%
-gen 1: 22.0%
-gen 2: 24.2%
-gen 3: 25.2%
-gen 4: 31.8%
-gen 5: 40.0%
-gen 6: 54.4%
-gen 7: 64.6%
-gen 8: 72.59%
-gen 9: 74.0%
-gen 10: 72.39%
-gen 11: 74.0%
-gen 12: 73.2%
-gen 13: 76.59%
-gen 14: 75.0%
-gen 15: 75.8%
-gen 16: 79.4%
-gen 17: 75.2%
-gen 18: 77.2%
-gen 19: 77.2%
-gen 20: 77.8%
-gen 21: 80.4%
-gen 22: 80.2%
-gen 23: 80.6%
+gen 1 survivors: 10.0%
+gen 2 survivors: 29.5%
+gen 3 survivors: 80.0%
+gen 4 survivors: 93.5%
+gen 5 survivors: 2.0%
+gen 6 survivors: 60.5%
+gen 7 survivors: 70.5%
+gen 8 survivors: 4.0%
+gen 9 survivors: 11.0%
+gen 10 survivors: 9.0%
+gen 11 survivors: 32.5%
+gen 12 survivors: 52.5%
+gen 13 survivors: 0.5%
+gen 14 survivors: 13.0%
+gen 15 survivors: 14.49%
+gen 16 survivors: 15.0%
+gen 17 survivors: 15.5%
+gen 18 survivors: 17.5%
+gen 19 survivors: 13.5%
+gen 20 survivors: 16.5%
+gen 21 survivors: 16.0%
+gen 22 survivors: 17.5%
+gen 23 survivors: 15.5%
+gen 24 survivors: 15.5%
+gen 25 survivors: 16.0%
+gen 26 survivors: 13.0%
+gen 27 survivors: 19.5%
+gen 28 survivors: 19.5%
+gen 29 survivors: 19.0%
+gen 30 survivors: 17.0%
+gen 31 survivors: 16.5%
+gen 32 survivors: 16.5%
+gen 33 survivors: 16.5%
+gen 34 survivors: 14.0%
+gen 35 survivors: 17.0%
+gen 36 survivors: 16.0%
+gen 37 survivors: 16.0%
+gen 38 survivors: 16.5%
+gen 39 survivors: 13.0%
+gen 40 survivors: 16.5%
+gen 41 survivors: 17.0%
+gen 42 survivors: 18.5%
+gen 43 survivors: 17.0%
+gen 44 survivors: 11.5%
+gen 45 survivors: 17.0%
+gen 46 survivors: 16.0%
+gen 47 survivors: 16.5%
+gen 48 survivors: 14.0%
+gen 49 survivors: 19.5%
+gen 50 survivors: 32.0%
+gen 51 survivors: 18.0%
+gen 52 survivors: 28.49%
+gen 53 survivors: 26.0%
+gen 54 survivors: 26.5%
+gen 55 survivors: 22.0%
+gen 56 survivors: 26.0%
+gen 57 survivors: 16.5%
+gen 58 survivors: 22.5%
+gen 59 survivors: 22.5%
+gen 60 survivors: 26.5%
+gen 61 survivors: 49.0%
+gen 62 survivors: 63.0%
+gen 63 survivors: 65.5%
+gen 64 survivors: 70.0%
+gen 65 survivors: 68.0%
+gen 66 survivors: 98.5%
+gen 67 survivors: 99.5%
+gen 68 survivors: 99.0%
+gen 69 survivors: 99.5%
+gen 70 survivors: 100.0%
+gen 71 survivors: 100.0%
+gen 72 survivors: 100.0%
+gen 73 survivors: 100.0%
+gen 74 survivors: 100.0%
+gen 75 survivors: 100.0%
+gen 76 survivors: 99.0%
+gen 77 survivors: 99.5%
+gen 78 survivors: 97.5%

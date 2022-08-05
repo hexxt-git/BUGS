@@ -4,8 +4,8 @@ import random
 from inputs import *
 from outputs import *
 
-inputs = [ locX, locY, adjN, adjE, adjS, adjW, rdm, age, osc2, osc5, osc10, nearby3] #12
-outputs = [ moveN, moveE, moveS, moveW, moveR, moveF, turn]#5
+inputs = [ locX, locY, adjN, adjE, adjS, adjW, rdm, age, osc2, osc5, osc10, nearby3, forward] #13
+outputs = [ moveN, moveE, moveS, moveW, moveR, moveF, turnB, turnR, turnL]#5
 
 class Bug:
     def __init__(self, code, biases, style):
@@ -16,7 +16,7 @@ class Bug:
 
 def generationGenerator( parents, count, w, h, complexity, mutation):
     #for the first generation or if there are not enough survivors
-    while len(parents) < 3:
+    while len(parents) < 1:
         code = []
         for synaps in range(complexity):
             code.append([random.randint( 0, len(inputs)-1), #input
@@ -109,14 +109,17 @@ def update(bugs, w, h, step, maxSteps):
                     outputs[moves.index(max(moves))](bugs, x, y, w, h)
     return bugs
 
-def render(bugs, res, generation):
+def render(bugs, res, generation, state):
     begin_drawing('BUGS')
     clear_background(Color( 30, 30, 50, 255))
     for x in range(len(bugs)):
         for y in range(len(bugs[x])):
             if bugs[x][y] != None:
                 draw_circle( x*res + int(res/2), y*res + int(res/2), res/2, Color( bugs[x][y].style[0], bugs[x][y].style[1], bugs[x][y].style[2], 255))
-    draw_rectangle_lines( 0, 0, 10*res, len(bugs[0])*res, GREEN)
+    if state == 1:
+        draw_rectangle_lines( (len(bugs)-10)*res, 0, len(bugs)*res, len(bugs[0])*res, GREEN)
+    if state == -1:
+        draw_rectangle_lines( 0, 0, 10*res, len(bugs[0])*res, GREEN)
     draw_text( 'generation: '+str(generation), 11, 13, 23, BLACK)
     draw_text( 'generation: '+str(generation), 8, 10, 23, WHITE)
     end_drawing()

@@ -63,7 +63,7 @@ def moveF( bugs, x, y, w, h):
     if bugs[x][y].forward == 'W':
         return moveW(bugs, x, y, w, h)
     return bugs
-def turn( bugs, x, y, w, h):
+def turnB( bugs, x, y, w, h):
     if bugs[x][y].forward == 'N':
         bugs[x][y].forward = 'S'
     if bugs[x][y].forward == 'E':
@@ -72,4 +72,24 @@ def turn( bugs, x, y, w, h):
         bugs[x][y].forward = 'N'
     if bugs[x][y].forward == 'W':
         bugs[x][y].forward = 'E'
+    return bugs
+def turnR( bugs, x, y, w, h):
+    if bugs[x][y].forward == 'N':
+        bugs[x][y].forward = 'E'
+    if bugs[x][y].forward == 'E':
+        bugs[x][y].forward = 'S'
+    if bugs[x][y].forward == 'S':
+        bugs[x][y].forward = 'W'
+    if bugs[x][y].forward == 'W':
+        bugs[x][y].forward = 'N'
+    return bugs
+def turnL( bugs, x, y, w, h):
+    if bugs[x][y].forward == 'N':
+        bugs[x][y].forward = 'W'
+    if bugs[x][y].forward == 'E':
+        bugs[x][y].forward = 'N'
+    if bugs[x][y].forward == 'S':
+        bugs[x][y].forward = 'E'
+    if bugs[x][y].forward == 'W':
+        bugs[x][y].forward = 'S'
     return bugs
