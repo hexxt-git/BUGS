@@ -93,6 +93,9 @@ def generationGenerator( parents, count, w, h, complexity, mutation):
         #appending the new born
         validated += 1
         children[x][y] = Bug( code, biases, style)
+        code = []
+        biases = []
+        style = []
     return children
 
 def update(bugs, w, h, step, maxSteps):
@@ -117,9 +120,9 @@ def render(bugs, res, generation, state):
             if bugs[x][y] != None:
                 draw_circle( x*res + int(res/2), y*res + int(res/2), res/2, Color( bugs[x][y].style[0], bugs[x][y].style[1], bugs[x][y].style[2], 255))
     if state == 1:
-        draw_rectangle_lines( (len(bugs)-10)*res, 0, len(bugs)*res, len(bugs[0])*res, GREEN)
+        draw_rectangle_lines( (len(bugs)-8)*res, 0, 8*res, len(bugs[0])*res, GREEN)
     if state == -1:
-        draw_rectangle_lines( 0, 0, 10*res, len(bugs[0])*res, GREEN)
+        draw_rectangle_lines( 0, 0, 8*res, len(bugs[0])*res, GREEN)
     draw_text( 'generation: '+str(generation), 11, 13, 23, BLACK)
     draw_text( 'generation: '+str(generation), 8, 10, 23, WHITE)
     end_drawing()

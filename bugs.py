@@ -37,11 +37,11 @@ while not window_should_close():
             for y in range(len(bugs[0])):
                 if bugs[x][y] != None:
                     if state == 1:
-                        if (x >= w-10 )&( x <= w):
+                        if (x >= w-8 )&( x <= w):
                             if (y >= 0 )&( y <= h):
                                 parents.append(bugs[x][y])
                     if state == -1:
-                        if (x >= 0 )&( x <= 10):
+                        if (x >= 0 )&( x <= 8):
                             if (y >= 0 )&( y <= h):
                                 parents.append(bugs[x][y])
         bugs = generationGenerator( parents, 200, w, h, 10, 0.0005)
