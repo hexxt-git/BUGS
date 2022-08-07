@@ -29,6 +29,10 @@ while not window_should_close():
     #generating a new generation every 1k step
     if is_key_pressed(KEY_SPACE):
             state *= -1
+            if state == 1:
+                f.write('--changed selection side to east--')
+            else:
+                f.write('--changed selection side to west--')
     if step == 1000:
         generation += 1
         step = 0
@@ -49,3 +53,5 @@ while not window_should_close():
         f.write('\ngen '+str(generation) + ' survivors: ' + str(math.floor(len(parents)/200*100*100)/100) + '%')
         data.append(len(parents))
 close_window()
+
+#something is really broken here idk what
